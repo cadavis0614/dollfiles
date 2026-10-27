@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doll Player</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+  video { width: 100%; height: 100%; object-fit: contain; display: block; }
+</style>
+</head>
+<body>
+<video id="v" autoplay playsinline></video>
+<script>
+  // Usage: player.html?v=doll_boot_sample      (plays doll_boot_sample.webm)
+  // Optional: &loop=1 to loop the clip
+  var p = new URLSearchParams(location.search);
+  var name = (p.get("v") || "doll_boot_sample").replace(/[^a-zA-Z0-9_-]/g, "");
+  var vid = document.getElementById("v");
+  vid.loop = p.get("loop") === "1";
+
+  // Try WebM first, fall back to MP4
+  var webm = document.createElement("source");
+  webm.src = name + ".webm"; webm.type = "video/webm";
+  var mp4 = document.createElement("source");
+  mp4.src = name + ".mp4"; mp4.type = "video/mp4";
+  vid.appendChild(webm); vid.appendChild(mp4);
+
+  // If autoplay with sound is blocked, start muted and unmute on first click
+  vid.play().catch(function () {
+    vid.muted = true; vid.play();
+    document.body.addEventListener("click", function () { vid.muted = false; }, { once: true });
+  });
+</script>
+</body>
+</html>
