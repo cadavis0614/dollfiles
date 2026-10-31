@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Doll Unit Boot</title>
+<title>Dolly Boot</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   DOLL UNIT : Cute boot sequence (about 10 seconds)
+   DOLLY : Cute boot sequence (about 10 seconds)
    URL options:
      ?name=Bunny   replaces "Doll" in the greeting
      ?loop=1       replays every 12 seconds (for previewing)
@@ -165,7 +165,7 @@ body{
 /* Title */
 .title{
   display:flex;margin-top:3vmin;
-  font-weight:800;font-size:11vmin;line-height:1;letter-spacing:.05em;
+  font-weight:800;font-size:14vmin;line-height:1;letter-spacing:.08em;
   filter:drop-shadow(0 .55vmin 0 #fff) drop-shadow(0 .9vmin 1.2vmin rgba(181,140,255,.35));
 }
 .title .l{
@@ -392,7 +392,7 @@ body{
   }
 
   // Title letters
-  var text = 'DOLL UNIT', title = document.getElementById('title'), idx = 0;
+  var text = 'DOLLY', title = document.getElementById('title'), idx = 0;
   for (var i = 0; i < text.length; i++) {
     var s = document.createElement('span');
     if (text[i] === ' ') { s.className = 'gap'; }
